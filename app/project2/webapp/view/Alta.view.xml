@@ -10,7 +10,7 @@
 			ariaLabelledBy="Title1">
 			<f:toolbar>
 				<Toolbar id="TB1">
-					<Title id="Title1" text="Address"/>
+					<Title id="Title1" text="Carga Empleados"/>
 					<ToolbarSpacer id="ts4" />
 					<Button id="bt10" icon="sap-icon://settings"/>
 					<Button id="bt20" icon="sap-icon://drop-down-list" />
@@ -42,9 +42,9 @@
 						</Toolbar>
 					</f:toolbar>
 					<f:formElements>
-						<f:FormElement id="fe1" label="Name">
+						<f:FormElement id="fe1" label="Nombre">
 							<f:fields>
-								<Input value="{SupplierName}" id="name"/>
+								<Input id="inputNombre"/>
 							</f:fields>
 						</f:FormElement>
 						<f:FormElement id="fe2" label="Street">
@@ -71,6 +71,8 @@
 				</f:FormContainer>
 			</f:formContainers>
 		</f:Form>
+		<Button text="Limpiar" id="btlimpiar" press="onLimpiar" />
+		<Button text="Guardar" id="btGuardar" press="onGuardar"></Button>
 	</VBox>
     </Page>
 </mvc:View>
