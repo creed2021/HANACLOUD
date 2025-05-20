@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>SAPUI5 App</title>
+    <script
+      id="sap-ui-bootstrap"
+      src="https://ui5.sap.com/resources/sap-ui-core.js"
+      data-sap-ui-theme="sap_fiori_3"
+      data-sap-ui-libs="sap.m,sap.ui.core,sap.ui.model.odata.v4"
+      data-sap-ui-preload="async"
+      data-sap-ui-resourceroots='{"app": "../"}'
+      data-sap-ui-async="true"
+      data-sap-ui-compatVersion="edge"
+    ></script>
+    <script>
+      sap.ui.getCore().attachInit(function () {
+        console.log("✅ index.html cargado");
+        new sap.ui.core.ComponentContainer({
+          name: "app",
+          async: true,
+          height: "100%"
+        }).placeAt("content");
+      });
+    </script>
+  </head>
+  <body class="sapUiBody" id="content"></body>
+</html>

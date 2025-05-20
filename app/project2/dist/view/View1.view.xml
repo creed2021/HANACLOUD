@@ -1,0 +1,28 @@
+<mvc:View controllerName="project2.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <Table id="table" items="{/EmpleadosDirecto}">
+            <columns>
+                <Column id="c1">
+                    <Text id="lblidEmpleado" text="ID" />
+                </Column>
+                <Column id="c2">
+                    <Text id="lblnombre" text="Nombre" />
+                </Column>
+                <Column id="c3">
+                    <Text id="lblapellido" text="Apellido" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem id="cc1">
+                    <cells>
+                        <Text id="txtidempleado" text="{ path: 'ID_EMPLEADO', targetType: 'any' }" />
+                        <Text id="txtnombre" text="{ path: 'NOMBRE', targetType: 'any' }" />
+                        <Text id="txtapellido" text="{ path: 'APELLIDO', targetType: 'any' }" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </Page>
+</mvc:View>

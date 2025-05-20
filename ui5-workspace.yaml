@@ -1,0 +1,11 @@
+specVersion: 'workspace/1.0'
+metadata:
+  name: my-hana-app-workspace
+dependencyManagement:
+  groups:
+    - name: default
+      dependencies:
+        - name: app
+          type: application
+          path: app
+

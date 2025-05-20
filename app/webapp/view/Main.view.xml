@@ -1,0 +1,37 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  controllerName="app.controller.Main">
+  <Page title="Empleados">
+    <content>
+    <Text id="texto" text="Pagina Principal" />
+     <Table id="empleadosTable" items="{/Empleados}" width="100%">
+  <columns>
+    <Column width="10rem"  demandPopin="false" hAlign="Center">
+      <Text text="ID"/>
+    </Column>
+    <Column width="15rem"  demandPopin="false" hAlign="Left">
+      <Text text="Nombre"/>
+    </Column>
+    <Column width="15rem"  demandPopin="false" hAlign="Left">
+      <Text text="Apellido"/>
+    </Column>
+    <Column width="12rem"  demandPopin="false" hAlign="Right">
+      <Text text="Sueldo"/>
+    </Column>
+  </columns>
+  <items>
+    <ColumnListItem>
+      <cells>
+        <Text text="{ID_EMPLEADO}"/>
+        <Text text="{NOMBRE}"/>
+        <Text text="{APELLIDO}"/>
+        <Text text="{SUELDO}"/>
+      </cells>
+    </ColumnListItem>
+  </items>
+</Table>
+    </content>
+  </Page>
+</mvc:View>
+

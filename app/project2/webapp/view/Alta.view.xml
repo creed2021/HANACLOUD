@@ -1,0 +1,76 @@
+<mvc:View controllerName="project2.controller.Alta"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m">
+    <Page id="page2" title="{i18n>title}">
+    <VBox id="vb1" class="sapUiSmallMargin">
+		<f:Form id="FormToolbar"
+			editable="true"
+			ariaLabelledBy="Title1">
+			<f:toolbar>
+				<Toolbar id="TB1">
+					<Title id="Title1" text="Address"/>
+					<ToolbarSpacer id="ts4" />
+					<Button id="bt10" icon="sap-icon://settings"/>
+					<Button id="bt20" icon="sap-icon://drop-down-list" />
+				</Toolbar>
+			</f:toolbar>
+			<f:layout>
+				<f:ResponsiveGridLayout id="rg1"
+					labelSpanXL="4"
+					labelSpanL="3"
+					labelSpanM="4"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="4"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="2"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer id="fvc" ariaLabelledBy="Title2">
+					<f:toolbar>
+						<Toolbar id="t1">
+							<Title id="Title2" text="Office"/>
+							<ToolbarSpacer id="tb1" />
+							<Button id="bt100" icon="sap-icon://settings"/>
+						</Toolbar>
+					</f:toolbar>
+					<f:formElements>
+						<f:FormElement id="fe1" label="Name">
+							<f:fields>
+								<Input value="{SupplierName}" id="name"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="fe2" label="Street">
+							<f:fields>
+								<Input id="vrfr" value="{Street}" />
+								<Input id="433" value="{HouseNumber}">
+									<layoutData>
+										<l:GridData id="fdf" span="XL2 L1 M3 S4" />
+									</layoutData>
+								</Input>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="fe4" label="ZIP Code/City">
+							<f:fields>
+								<Input id="txtzip" value="{ZIPCode}">
+									<layoutData>
+										<l:GridData id="gd1" span="XL2 L1 M3 S4" />
+									</layoutData>
+								</Input>
+								<Input id="txtc1" value="{City}" />
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+	</VBox>
+    </Page>
+</mvc:View>
