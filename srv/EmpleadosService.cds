@@ -1,4 +1,5 @@
 service EmpleadosService {
+  @cds.persistence.skip
   entity EmpleadosDirecto {
     key ID_EMPLEADO : Integer;
     NOMBRE          : String(100);

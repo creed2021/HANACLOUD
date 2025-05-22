@@ -42,29 +42,24 @@
 						</Toolbar>
 					</f:toolbar>
 					<f:formElements>
+					<f:FormElement id="fe10" label="IdEmpleado">
+							<f:fields>
+								<Input id="inputidempleado"/>
+							</f:fields>
+						</f:FormElement>
 						<f:FormElement id="fe1" label="Nombre">
 							<f:fields>
 								<Input id="inputNombre"/>
 							</f:fields>
 						</f:FormElement>
-						<f:FormElement id="fe2" label="Street">
+						<f:FormElement id="fe2" label="Apellido">
 							<f:fields>
-								<Input id="vrfr" value="{Street}" />
-								<Input id="433" value="{HouseNumber}">
-									<layoutData>
-										<l:GridData id="fdf" span="XL2 L1 M3 S4" />
-									</layoutData>
-								</Input>
+								<Input id="inputApellido" />
 							</f:fields>
 						</f:FormElement>
-						<f:FormElement id="fe4" label="ZIP Code/City">
+						<f:FormElement id="fe4" label="Sueldo">
 							<f:fields>
-								<Input id="txtzip" value="{ZIPCode}">
-									<layoutData>
-										<l:GridData id="gd1" span="XL2 L1 M3 S4" />
-									</layoutData>
-								</Input>
-								<Input id="txtc1" value="{City}" />
+								<Input id="inputSueldo"/>
 							</f:fields>
 						</f:FormElement>
 					</f:formElements>
@@ -73,6 +68,8 @@
 		</f:Form>
 		<Button text="Limpiar" id="btlimpiar" press="onLimpiar" />
 		<Button text="Guardar" id="btGuardar" press="onGuardar"></Button>
+		<Button text="Actualizar" id="btnActualizar" press="onActualizar"></Button>
+		<Button  text="Eliminar" id="btnEliminar" press="onEliminar"></Button>
 	</VBox>
     </Page>
 </mvc:View>

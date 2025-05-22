@@ -65,7 +65,10 @@
       "": {
         "dataSource": "mainService",
         "preload": true,
+        "type": "sap.ui.model.odata.v4.ODataModel",
         "settings": {
+          "groupId": "$auto",
+          "updateGroupId": "myUpdateGroup",
           "operationMode": "Server",
           "autoExpandSelect": true,
           "earlyRequests": true
