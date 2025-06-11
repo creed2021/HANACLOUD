@@ -55,5 +55,38 @@ annotate service.EmpleadosDirecto with @(
             Value : SUELDO,
         },
     ],
+    UI.SelectionFields : [
+        SUELDO,
+        APELLIDO,
+    ],
 );
+
+annotate service.EmpleadosDirecto with {
+    APELLIDO @(
+        Common.Label : 'APELLIDO',
+        Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'EmpleadosDirecto',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : APELLIDO,
+                    ValueListProperty : 'NOMBRE',
+                },
+            ],
+        },
+        Common.ValueListWithFixedValues : true,
+    )
+};
+
+annotate service.EmpleadosDirecto with {
+    SUELDO @Common.Label : 'SUELDO'
+};
+
+annotate service.EmpleadosDirecto with {
+    NOMBRE @Common.Text : {
+        $value : APELLIDO,
+        ![@UI.TextArrangement] : #TextOnly,
+    }
+};
 
