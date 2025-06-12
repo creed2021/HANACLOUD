@@ -48,6 +48,7 @@
     "@ui5/cli": "^4.0.16",
     "mbt": "^1.2.29",
     "rimraf": "^5.0.5",
+    "sqlite3": "^5.1.7",
     "ui5-tooling-modules": "^3.27.1",
     "ui5-tooling-transpile": "^3.8.0"
   }
