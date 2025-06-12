@@ -25,12 +25,39 @@ annotate service.EmpleadosDirecto with @(
             },
         ],
     },
+    UI.FieldGroup #SueldoGroup : {
+    $Type : 'UI.FieldGroupType',
+    Data : [
+        {
+            $Type : 'UI.DataField',
+            Value : SUELDO,
+            Label : 'Sueldo mensual',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : ID_EMPLEADO,
+            Label : 'ID Empleado',
+        }
+    ]
+},
     UI.Facets : [
         {
             $Type : 'UI.ReferenceFacet',
             ID : 'GeneratedFacet1',
             Label : 'General Information',
             Target : '@UI.FieldGroup#GeneratedGroup',
+        },
+        {
+             $Type : 'UI.ReferenceFacet',
+        ID : 'SalarySection',
+        Label : 'Sueldo y Otros',
+        Target : '@UI.FieldGroup#SueldoGroup',
+        },
+         {
+             $Type : 'UI.ReferenceFacet',
+        ID : 'SalarySection2',
+        Label : 'Sueldo y Otros2',
+        Target : '@UI.FieldGroup#SueldoGroup',
         },
     ],
     UI.LineItem : [
@@ -89,4 +116,31 @@ annotate service.EmpleadosDirecto with {
         ![@UI.TextArrangement] : #TextOnly,
     }
 };
+
+annotate service.EmpleadosDirecto with @UI.Identification : [
+    { $Type: 'UI.DataField', Value: ID_EMPLEADO },
+    { $Type: 'UI.DataField', Value: NOMBRE },
+    { $Type: 'UI.DataField', Value: APELLIDO }
+];
+
+annotate service.EmpleadosDirecto with @UI.HeaderInfo : {
+  TypeName : 'Empleado',
+  TypeNamePlural : 'Empleados',
+  Title : {
+    $Type : 'UI.DataField',
+    Value : NOMBRE
+  },
+  Description : {
+    $Type : 'UI.DataField',
+    Value : APELLIDO
+  }
+};
+
+@Capabilities.DeleteRestrictions.Deletable : false
+entity EmpleadosDirecto {
+    key ID_EMPLEADO : Integer;
+    NOMBRE          : String(100);
+    APELLIDO        : String(100);
+    SUELDO          : Decimal(10,2);
+}
 
