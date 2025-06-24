@@ -26,20 +26,20 @@ annotate service.EmpleadosDirecto with @(
         ],
     },
     UI.FieldGroup #SueldoGroup : {
-    $Type : 'UI.FieldGroupType',
-    Data : [
-        {
-            $Type : 'UI.DataField',
-            Value : SUELDO,
-            Label : 'Sueldo mensual',
-        },
-        {
-            $Type : 'UI.DataField',
-            Value : ID_EMPLEADO,
-            Label : 'ID Empleado',
-        }
-    ]
-},
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : SUELDO,
+                Label : 'Sueldo mensual',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : ID_EMPLEADO,
+                Label : 'ID Empleado',
+            }
+        ]
+    },
     UI.Facets : [
         {
             $Type : 'UI.ReferenceFacet',
@@ -48,17 +48,23 @@ annotate service.EmpleadosDirecto with @(
             Target : '@UI.FieldGroup#GeneratedGroup',
         },
         {
-             $Type : 'UI.ReferenceFacet',
-        ID : 'SalarySection',
-        Label : 'Sueldo y Otros',
-        Target : '@UI.FieldGroup#SueldoGroup',
+            $Type : 'UI.ReferenceFacet',
+            ID : 'SalarySection',
+            Label : 'Sueldo y Otros',
+            Target : '@UI.FieldGroup#SueldoGroup',
         },
-         {
-             $Type : 'UI.ReferenceFacet',
-        ID : 'SalarySection2',
-        Label : 'Sueldo y Otros2',
-        Target : '@UI.FieldGroup#SueldoGroup',
+        {
+            $Type : 'UI.ReferenceFacet',
+            ID : 'SalarySection2',
+            Label : 'Sueldo y Otros2',
+            Target : '@UI.FieldGroup#SueldoGroup',
         },
+        {
+            $Type : 'UI.ReferenceFacet',
+            ID : 'PruebaFacet',
+            Label : 'Prueba',
+            Target : '@UI.FieldGroup#GeneratedGroup',  // Reusa el mismo FieldGroup para la faceta "Prueba"
+        }
     ],
     UI.LineItem : [
         {
@@ -88,6 +94,7 @@ annotate service.EmpleadosDirecto with @(
     ],
 );
 
+// Resto de anotaciones sin cambios...
 annotate service.EmpleadosDirecto with {
     APELLIDO @(
         Common.Label : 'APELLIDO',
@@ -108,13 +115,6 @@ annotate service.EmpleadosDirecto with {
 
 annotate service.EmpleadosDirecto with {
     SUELDO @Common.Label : 'SUELDO'
-};
-
-annotate service.EmpleadosDirecto with {
-    NOMBRE @Common.Text : {
-        $value : APELLIDO,
-        ![@UI.TextArrangement] : #TextOnly,
-    }
 };
 
 annotate service.EmpleadosDirecto with @UI.Identification : [
@@ -143,4 +143,3 @@ entity EmpleadosDirecto {
     APELLIDO        : String(100);
     SUELDO          : Decimal(10,2);
 }
-
