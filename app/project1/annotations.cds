@@ -114,6 +114,7 @@ annotate service.EmpleadosDirecto with @(
             $Type : 'UI.DataField',
             Label : 'SUELDO',
             Value : SUELDO,
+            Criticality: SueldoCriticality
         },
     ],
     UI.SelectionFields : [

@@ -1,0 +1,15 @@
+<Annotations Target="EmpleadosService.EmpleadosDirecto" xmlns="http://docs.oasis-open.org/odata/ns/edm" xmlns:UI="http://docs.oasis-open.org/odata/ns/edm">
+  <Annotation Term="UI.DataPoint">
+    <Record>
+      <PropertyValue Property="Title" String="Sueldo"/>
+      <PropertyValue Property="Value" PropertyPath="SUELDO"/>
+      <PropertyValue Property="CriticalityCalculation">
+        <Record>
+          <PropertyValue Property="ImprovementDirection" EnumMember="UI.ImprovementDirectionType/Minimize"/>
+          <PropertyValue Property="ToleranceRangeLowValue" Int="5000"/>
+          <PropertyValue Property="DeviationRangeLowValue" Int="10000"/>
+        </Record>
+      </PropertyValue>
+    </Record>
+  </Annotation>
+</Annotations>

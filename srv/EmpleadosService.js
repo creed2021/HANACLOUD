@@ -5,7 +5,22 @@ module.exports = cds.service.impl(async function () {
 
   this.on('READ', 'EmpleadosDirecto', async (req) => {
     console.log('>> READ recibido:', req.data); 
-    return await db.run(`SELECT * FROM "DBADMIN"."EMPLEADOS"`);
+
+    // Traemos los datos de la tabla
+    const empleados = await db.run(`SELECT * FROM "DBADMIN"."EMPLEADOS"`);
+
+    // Agregamos la propiedad calculada SueldoCriticality para color
+    empleados.forEach(emp => {
+      if (emp.SUELDO >= 50000) {
+        emp.SueldoCriticality = 1;  // Verde (Positive)
+      } else if (emp.SUELDO >= 30000) {
+        emp.SueldoCriticality = 3;  // Amarillo (Critical)
+      } else {
+        emp.SueldoCriticality = 2;  // Rojo (Negative)
+      }
+    });
+
+    return empleados;
   });
 
   this.on('CREATE', 'EmpleadosDirecto', async (req) => {
@@ -27,16 +42,13 @@ module.exports = cds.service.impl(async function () {
   
     const { ID_EMPLEADO, NOMBRE, APELLIDO, SUELDO } = req.data;
   
-    // Ejecutar el UPDATE con HANA SQL directo
     await db.run(
       `UPDATE "DBADMIN"."EMPLEADOS" SET NOMBRE = ?, APELLIDO = ?, SUELDO = ? WHERE ID_EMPLEADO = ?`,
       [NOMBRE, APELLIDO, SUELDO, ID_EMPLEADO]
     );
   
-    // Retornar el registro actualizado para confirmación
     return req.data;
   });
-  
 
   this.on('DELETE', 'EmpleadosDirecto', async (req) => {
     console.log('>> DELETE recibido:', req.data);
@@ -48,7 +60,6 @@ module.exports = cds.service.impl(async function () {
       [ID_EMPLEADO]
     );
   
-    // Confirmar borrado devolviendo la clave
     return { ID_EMPLEADO };
   });
   
