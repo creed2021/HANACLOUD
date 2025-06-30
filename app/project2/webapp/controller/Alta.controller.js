@@ -45,6 +45,7 @@ sap.ui.define([
         this.getView().byId("inputNombre").setValue("");
         this.getView().byId("inputApellido").setValue("");
         this.getView().byId("inputSueldo").setValue("");
+        MessageToast.show("Campos Limpiados");
 
       },
       onActualizar: function () {
