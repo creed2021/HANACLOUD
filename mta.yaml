@@ -73,6 +73,10 @@ modules:
       - project3.zip
       name: project3
       target-path: resources/
+    - artifacts:
+      - project4.zip
+      name: project4
+      target-path: resources/
 - name: project1
   type: html5
   path: app/project1
@@ -96,6 +100,16 @@ modules:
 - name: project3
   type: html5
   path: app/project3
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: project4
+  type: html5
+  path: app/project4
   build-parameters:
     build-result: dist
     builder: custom

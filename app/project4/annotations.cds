@@ -1,0 +1,1 @@
+using EmpleadosService as service from '../../srv/EmpleadosService';

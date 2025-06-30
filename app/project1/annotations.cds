@@ -42,28 +42,56 @@ annotate service.EmpleadosDirecto with @(
     },
     UI.Facets : [
         {
-            $Type : 'UI.ReferenceFacet',
-            ID : 'GeneratedFacet1',
-            Label : 'General Information',
-            Target : '@UI.FieldGroup#GeneratedGroup',
+            $Type : 'UI.CollectionFacet',
+            ID : 'GeneralTab',
+            Label : 'Datos Generales',
+            Facets : [
+                {
+                    $Type : 'UI.ReferenceFacet',
+                    ID : 'GeneralSection',
+                    Label : 'General',
+                    Target : '@UI.FieldGroup#GeneratedGroup'
+                }
+            ]
         },
         {
-            $Type : 'UI.ReferenceFacet',
-            ID : 'SalarySection',
-            Label : 'Sueldo y Otros',
-            Target : '@UI.FieldGroup#SueldoGroup',
+            $Type : 'UI.CollectionFacet',
+            ID : 'SalaryTab',
+            Label : 'Sueldo',
+            Facets : [
+                {
+                    $Type : 'UI.ReferenceFacet',
+                    ID : 'SalarySection',
+                    Label : 'Información Salarial',
+                    Target : '@UI.FieldGroup#SueldoGroup'
+                }
+            ]
         },
         {
-            $Type : 'UI.ReferenceFacet',
-            ID : 'SalarySection2',
-            Label : 'Sueldo y Otros2',
-            Target : '@UI.FieldGroup#SueldoGroup',
-        },
-        {
-            $Type : 'UI.ReferenceFacet',
-            ID : 'PruebaFacet',
+            $Type : 'UI.CollectionFacet',
+            ID : 'PruebaTab',
             Label : 'Prueba',
-            Target : '@UI.FieldGroup#GeneratedGroup',  // Reusa el mismo FieldGroup para la faceta "Prueba"
+            Facets : [
+                {
+                    $Type : 'UI.ReferenceFacet',
+                    ID : 'PruebaSection',
+                    Label : 'Datos de Prueba',
+                    Target : '@UI.FieldGroup#GeneratedGroup'
+                }
+            ]
+        },
+        {
+            $Type : 'UI.CollectionFacet',
+            ID : 'OtraInfoTab',
+            Label : 'Otra Información',
+            Facets : [
+                {
+                    $Type : 'UI.ReferenceFacet',
+                    ID : 'OtraInfoSection',
+                    Label : 'Extra',
+                    Target : '@UI.FieldGroup#GeneratedGroup'
+                }
+            ]
         }
     ],
     UI.LineItem : [
@@ -94,29 +122,6 @@ annotate service.EmpleadosDirecto with @(
     ],
 );
 
-// Resto de anotaciones sin cambios...
-annotate service.EmpleadosDirecto with {
-    APELLIDO @(
-        Common.Label : 'APELLIDO',
-        Common.ValueList : {
-            $Type : 'Common.ValueListType',
-            CollectionPath : 'EmpleadosDirecto',
-            Parameters : [
-                {
-                    $Type : 'Common.ValueListParameterInOut',
-                    LocalDataProperty : APELLIDO,
-                    ValueListProperty : 'NOMBRE',
-                },
-            ],
-        },
-        Common.ValueListWithFixedValues : true,
-    )
-};
-
-annotate service.EmpleadosDirecto with {
-    SUELDO @Common.Label : 'SUELDO'
-};
-
 annotate service.EmpleadosDirecto with @UI.Identification : [
     { $Type: 'UI.DataField', Value: ID_EMPLEADO },
     { $Type: 'UI.DataField', Value: NOMBRE },
@@ -143,3 +148,8 @@ entity EmpleadosDirecto {
     APELLIDO        : String(100);
     SUELDO          : Decimal(10,2);
 }
+
+annotate service.EmpleadosDirecto with @Capabilities.FilterRestrictions : {
+    Filterable : true,
+    NonFilterableProperties : []
+};

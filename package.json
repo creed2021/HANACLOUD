@@ -21,7 +21,8 @@
     "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
     "build:ui5": "ui5 build --all --clean-dest --dest dist",
     "watch-project3": "cds watch --open project3/webapp/index.html?sap-ui-xx-viewCache=false",
-    "undeploy": "cf undeploy MyHANAApp --delete-services --delete-service-keys --delete-service-brokers"
+    "undeploy": "cf undeploy MyHANAApp --delete-services --delete-service-keys --delete-service-brokers",
+    "watch-project4": "cds watch --open project4/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {
@@ -44,7 +45,8 @@
   },
   "sapux": [
     "app/project1",
-    "app/project3"
+    "app/project3",
+    "app/project4"
   ],
   "devDependencies": {
     "@sap/cds-dk": "^8.9.3",
